@@ -1,0 +1,5 @@
+Installation:
+
+  git clone git://github.com/tnitsche/home-sweet-home.git ~/.home-sweet-home
+
+Create symlinks:
