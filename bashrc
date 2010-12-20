@@ -34,7 +34,7 @@ export EDITOR=/usr/bin/vim
 #-----------------------------------
 
 function backup() { cp -i $1 $1~; }
-function c () { cd `~thomas/bin/cdbm.pl $1`; pwd;}
+function c () { cd `~thomas/.home-sweet-home/bin/cdbm.pl $1`; pwd;}
 function ff() { find . -name '*'$1'*' ; }
 function fe() { find . -name '*'$1'*' -exec $2 {} \; ; }
 function fstr() # find a string in a set of files
