@@ -26,7 +26,6 @@ shopt -s extglob
 
 export PATH
 
-export REPLYTO="thomas.nitsche@gmail.com"
 export VISUAL=/usr/bin/vim
 export EDITOR=/usr/bin/vim
 
@@ -116,6 +115,7 @@ complete -f -X '!*.gz'  gunzip
 complete -f -X '!*.ps'  gs ghostview gv
 complete -f -X '!*.pdf' acroread
 complete -f -X '!*.+(gif|jpg|jpeg|GIF|JPG|bmp)' xv gimp
+complete -C ~/.home-sweet-home/bin/rake_completion.rb -o default rake
 source /etc/bash_completion.d/git
 
 if [ "\$(type -t __git_ps1)" ]; then
