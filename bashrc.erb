@@ -26,6 +26,7 @@ shopt -s extglob
 
 export PATH
 
+export REPLYTO="<%= print("email for ENV['REPLYTO=']: "); STDOUT.flush; STDIN.gets.chomp %>"
 export VISUAL=/usr/bin/vim
 export EDITOR=/usr/bin/vim
 
