@@ -29,68 +29,6 @@ export REPLYTO="<%= print("email for ENV['REPLYTO=']: "); STDOUT.flush; STDIN.ge
 export VISUAL=/usr/bin/vim
 export EDITOR=/usr/bin/vim
 
-#-----------------------------------
-# File & strings related functions:
-#-----------------------------------
-
-function backup() { cp -i $1 $1~; }
-function c () { cd `~thomas/.home-sweet-home/bin/cdbm.pl $1`; pwd;}
-function ff() { find . -name '*'$1'*' ; }
-function fe() { find . -name '*'$1'*' -exec $2 {} \; ; }
-function fstr() # find a string in a set of files
-{
-    if [ "$#" -gt 2 ]; then
-        echo "Usage: fstr \"pattern\" [files] "
-        return;
-    fi
-    SMSO=$(tput smso)
-    RMSO=$(tput rmso)
-    find . -type f -name "${2:-*}" -print | xargs grep -sin "$1" | \
-sed "s/$1/$SMSO$1$RMSO/gI"
-}
-
-function cuttail() # cut last n lines in file, 10 by default
-{
-    nlines=${2:-10}
-    sed -n -e :a -e "1,${nlines}!{P;N;D;};N;ba" $1
-}
-
-function lowercase()  # move filenames to lowercase
-{
-    for file ; do
-        filename=${file##*/}
-        case "$filename" in
-        */*) dirname==${file%/*} ;;
-        *) dirname=.;;
-        esac
-        nf=$(echo $filename | tr A-Z a-z)
-        newname="${dirname}/${nf}"
-        if [ "$nf" != "$filename" ]; then
-            mv "$file" "$newname"
-            echo "lowercase: $file --> $newname"
-        else
-            echo "lowercase: $file not changed."
-        fi
-    done
-}
-
-function swap()         # swap 2 filenames around
-{
-    local TMPFILE=tmp.$$
-    mv $1 $TMPFILE
-    mv $2 $1
-    mv $TMPFILE $2
-}
-
-function repeat()       # repeat n times command
-{
-    local i max
-    max=$1; shift;
-    for ((i=1; i <= max ; i++)); do  # --> C-like syntax
-        eval "$@";
-    done
-}
-
 shopt -s extglob        # necessary
 
 complete -A hostname   telnet ftp ping disk ssh scp
