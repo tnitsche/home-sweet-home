@@ -78,3 +78,9 @@ function repeat()       # repeat n times command
         eval "$@";
     done
 }
+
+function show_line() #  show a specific line
+{
+    awk  "NR==$1-1 || NR==$1 || NR==$1+1" $2
+}
+
