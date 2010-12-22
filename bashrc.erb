@@ -5,8 +5,7 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-# User specific aliases and functions
-
+# User specific aliases
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
@@ -124,3 +123,9 @@ if [ "\$(type -t __git_ps1)" ]; then
 fi
 
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+
+# Settings pecific to one system
+if [ -f ~/.bash_local ]; then
+    . ~/.bash_local 
+fi
+
