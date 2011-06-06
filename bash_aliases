@@ -13,9 +13,9 @@ alias search="grep -rsniH"
 
 alias m='less'
 export PAGER=less
-export LESSOPEN='|lesspipe.sh %s'  # Use this if lesspipe.sh exists 
-export LESS='-i -w -g -e -M -R -P%t?f%f \
-:stdin .?pb%pb\%:?lbLine %lb:?bbByte %bb:-...'
+export LESS='-eiMSx4 -FX -P%t?f%f :stdin .?pb%pb\%:?lbLine %lb:?bbByte %bb:-...'
+#export LESS='-i -w -g -e -M -R -P%t?f%f \
+#:stdin .?pb%pb\%:?lbLine %lb:?bbByte %bb:-...'
 
 #-----------------------------------
 # File & strings related functions:
