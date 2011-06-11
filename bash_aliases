@@ -10,6 +10,7 @@ alias l='ls -la'
 alias loacte='locate'
 alias ssh="ssh -X"
 alias search="grep -rsniH"
+alias t="tail -f"
 
 alias m='less'
 export PAGER=less
