@@ -1,6 +1,6 @@
 \timing
 \pset pager always
-\set PROMPT1 '%n@%/%x%=%# '
+\set PROMPT1 '%n@%m:%/%x=# '
 
 \set a  'select * from pg_stat_activity;'
 
