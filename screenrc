@@ -1,5 +1,5 @@
 
-# Don't display the copyright page
+# don't display the copyright page
 startup_message off
 
 # tab-completion flash in heading bar
@@ -10,9 +10,12 @@ autodetach on
 # keep scrollback n lines
 defscrollback 10000
 
+# replace CTRL-a with CTRL-y
+escape "^yy"
+
 screen -t bash      0
-#screen -t bash      1
-#screen -t bash      2
+screen -t bash      1
+screen -t bash      2
 screen -t top       3 top
 shelltitle "$ |bash"
 
