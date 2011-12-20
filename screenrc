@@ -23,3 +23,5 @@ hardstatus on
 hardstatus alwayslastline
 hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %D %M %d, %{M}%c %{g}][ %{y}Load: %l %{g}]'
 
+# making scrollback in gnome-terminal acceptable (SHIFT+PAGE DOWN/UP)
+termcapinfo xterm* ti@:te@
