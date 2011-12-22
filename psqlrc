@@ -4,7 +4,9 @@
 \set PROMPT1 '%n@%m:%/%x=# '
 \set ON_ERROR_ROLLBACK interactive
 
-\set a  'select * from pg_stat_activity;'
+\set a  'select * from pg_stat_activity where current_query != \'<IDLE>\';'
+
+\set ps 'SELECT procpid, waiting as w, substring(current_query for 97) as query, to_char((now()-query_start), \'HH24:MI:SS\') as t, datname as db, usename as user FROM pg_stat_activity where current_query not like \'%<insufficient%\' and current_query not like \'%IDLE%\' order by t desc;'
 
 \set trashindexes '( select s.schemaname as sch, s.relname as rel, s.indexrelname as idx, s.idx_scan as idx_scans, pg_size_pretty(pg_relation_size(s.relid)) as tbl_size, pg_size_pretty(pg_relation_size(s.indexrelid)) as "idx_size" from pg_stat_user_indexes s join pg_index i on i.indexrelid=s.indexrelid left join pg_constraint c on i.indrelid=c.conrelid and array_to_string(i.indkey, '' '') = array_to_string(c.conkey, '' '') where i.indisunique is false and pg_relation_size(s.relid) > 1000000 and s.idx_scan < 100000 and c.confrelid is null order by s.idx_scan asc, pg_relation_size(s.relid) desc )';
 
