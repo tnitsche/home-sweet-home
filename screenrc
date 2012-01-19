@@ -15,8 +15,7 @@ escape "^yy"
 
 screen -t bash      0
 screen -t bash      1
-screen -t bash      2
-screen -t top       3 top
+screen -t htop      3 htop
 shelltitle "$ |bash"
 
 hardstatus on
