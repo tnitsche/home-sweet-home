@@ -12,6 +12,18 @@
         me = merge
         info = log --pretty=format:'%ci - %Cred%h%Creset - %s - %Cblue%an%Creset' --abbrev-commit
         lol = log --graph --decorate --pretty=oneline --abbrev-commit
+        branch-overview = "!sh -c 'git branch --no-color | \
+          sed -e \"s/*/ /\" | \
+          while read branch; do \
+            git log -1 --format=format:\"%Cred$branch:%Cblue %s %Cgreen%h%Creset (%ar)\" $branch; \
+          done'"
+        last = show -s HEAD^{commit}
+
+        # Experteer
+        install = "!git checkout `cat CURRENT_INSTALL` && git pull"
+        mci2m = "!git-merge-current-install.sh" # Merge Current Install 2 Master
+
+
 [pager]
         color = true
 
