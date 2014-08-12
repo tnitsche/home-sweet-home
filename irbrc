@@ -61,7 +61,7 @@ begin
 
     Kernel::at_exit {
       lines = Readline::HISTORY.to_a.reverse.uniq.reverse
-      lines = lines[ -MAXHISTSIZE, MAXHISTSIZE ] if lines.nitems > MAXHISTSIZE
+      lines = lines[ -MAXHISTSIZE, MAXHISTSIZE ] if lines.count{|x| !x.nil?} > MAXHISTSIZE
       $stderr.puts "Saving %d history lines to %s." %
 
         [ lines.length, histfile ] if $VERBOSE || $DEBUG
